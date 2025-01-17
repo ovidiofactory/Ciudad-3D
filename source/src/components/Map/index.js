@@ -5,6 +5,7 @@ import { Container, Box, Typography } from '@material-ui/core'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { actions as mapActions } from 'state/ducks/map'
+
 import { actions as seekerActions } from 'state/ducks/seeker'
 
 import { getApiUrl, getFullLayerConfigByIdLayer } from 'utils/configQueries'
@@ -26,6 +27,9 @@ import imgCapaBaseHistory from 'img/capabase_history.png'
 import PropTypes from 'prop-types'
 import useStyles from './styles'
 
+import { initMap } from '../../state/ducks/map'
+
+
 const mockupHistory = [...new Array(10).keys()].map((v) => ({
   title: `${v + 1940}`,
   url: 'https://tiles.usig.org.ar/history/tiles/1940/{z}/{x}/{y}.pbf'
@@ -44,16 +48,17 @@ const MinimapOption = ({ imageUrl, text, children, ...otherProps }) => {
         }}
         {...otherProps}
       >
-        <Typography
-          variant="caption"
-          className={[
-            decorators.bold,
-            decorators.white,
-            classes.minimapTitleContainer
-          ]}
-        >
-          {text}
-        </Typography>
+      <Typography
+        variant="caption"
+        className={[
+          decorators.bold,
+          decorators.white,
+          classes.minimapTitleContainer
+        ].join(' ')}
+      >
+        {text}
+      </Typography>
+
       </Box>
       {children}
     </>

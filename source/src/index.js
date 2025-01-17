@@ -31,7 +31,9 @@ render(
     <ThemeProvider theme={theme}>
       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
       <CssBaseline />
-      <ReactFontLoader fonts={[{ name: 'Nunito' }, { name: 'Open Sans' }]} />
+      <ReactFontLoader 
+        url="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Open+Sans:wght@400;700&display=swap" 
+      />
       <App />
     </ThemeProvider>
   </Provider>,
